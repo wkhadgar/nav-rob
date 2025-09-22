@@ -47,5 +47,8 @@ qtcreator-*
 # Emacs
 .#*
 
+.idea/
+.venv/
+
 # Catkin custom files
 CATKIN_IGNORE
