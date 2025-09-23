@@ -72,13 +72,13 @@ class Bug2Controller(Node):
         self.hit_point = None
 
         self.distance_goal_tolerance = 0.3
-        self.obstacle_detect_threshold = 0.5
+        self.obstacle_detect_threshold = 0.4
         self.max_linear_speed = 0.4
         self.max_angular_speed = 1.0
         self.kp_ang = 1.5
         self.kp_lin = 0.5
 
-        self.desired_wall_dist = 0.4
+        self.desired_wall_dist = 0.2
         self.k_dist = 1.2
         self.k_angle = 0.8
 

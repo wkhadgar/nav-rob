@@ -53,6 +53,9 @@ src/log/
 src/install/
 src/build/
 src/bags/
+install/
+log/
+bags/
 
 # Catkin custom files
 CATKIN_IGNORE

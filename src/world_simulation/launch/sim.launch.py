@@ -69,22 +69,6 @@ def generate_launch_description():
         output='screen'
     )
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    bag_name = f"bags/tangent_bug_{timestamp}"
-
-    rosbag_cmd = ExecuteProcess(
-        cmd=[
-            'ros2', 'bag', 'record',
-            '-o', bag_name,
-            '/cmd_vel',
-            '/odom',
-            '/bug_state',
-            '/scan',
-            '/goal_marker'
-        ],
-        output='screen'
-    )
-
     delay_actions_after_sdf = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=init_claim,
@@ -94,7 +78,6 @@ def generate_launch_description():
                 spawn_robot,
                 robot_state_publisher_cmd,
                 start_rviz_cmd,
-                rosbag_cmd,
             ]
         )
     )

@@ -637,14 +637,13 @@ class TangentBug(Node):
 
 def main():
     parser = argparse.ArgumentParser(description='TangentBug Node')
-    parser.add_argument('--goal', type=float, nargs=2, default=[-2, 3], help='Goal coordinates as x y')
+    parser.add_argument('--goal_x', type=float, default=0, help='Goal X coordinate')
+    parser.add_argument('--goal_y', type=float, default=0, help='Goal Y coordinate')
     args, unknown = parser.parse_known_args()
 
     rclpy.init(args=unknown)
 
-    print(args.goal)
-
-    minimal_subscriber = TangentBug(args.goal)
+    minimal_subscriber = TangentBug([args.goal_x, args.goal_y])
 
     rclpy.spin(minimal_subscriber)
 
