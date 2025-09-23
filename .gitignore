@@ -49,6 +49,10 @@ qtcreator-*
 
 .idea/
 .venv/
+src/log/
+src/install/
+src/build/
+src/bags/
 
 # Catkin custom files
 CATKIN_IGNORE

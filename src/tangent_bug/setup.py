@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'py_srvcli'
+package_name = 'tangent_bug'
 
 setup(
     name=package_name,
@@ -13,17 +13,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='paulo',
-    maintainer_email='prms@ic.ufal.br',
-    description='Navegação de Robôs',
-    license='Apache-2.0',
-    extras_require={
-        'test': [
-            'pytest',
-        ],
-    },
+    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'tangent_bug = tangent_bug.tangent_bug:main',
         ],
     },
 )
