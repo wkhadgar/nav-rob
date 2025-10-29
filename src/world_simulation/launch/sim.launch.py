@@ -9,6 +9,7 @@ from launch_ros.actions import Node
 from datetime import datetime
 import os
 
+
 def generate_launch_description():
     pkg_share = get_package_share_directory('world_simulation')
     launch_file_dir = os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'launch')
@@ -47,7 +48,7 @@ def generate_launch_description():
             'y_pose': LaunchConfiguration('y_pose')
         }.items()
     )
-    
+
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(launch_file_dir, 'robot_state_publisher.launch.py')
@@ -66,6 +67,7 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         arguments=['-d', rviz_config_dir],
+        parameters=[{'use_sim_time': True}],
         output='screen'
     )
 
@@ -83,10 +85,10 @@ def generate_launch_description():
     )
 
     set_env_vars_resources = AppendEnvironmentVariable(
-            'GZ_SIM_RESOURCE_PATH',
-            os.path.join(
-                get_package_share_directory('turtlebot3_gazebo'),
-                'models'))
+        'GZ_SIM_RESOURCE_PATH',
+        os.path.join(
+            get_package_share_directory('turtlebot3_gazebo'),
+            'models'))
 
     return LaunchDescription([
         x_pose_arg,
