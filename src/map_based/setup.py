@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'map_based_main = map_based.map_based_main:main',
             'calculate_rrt = map_based.scripts.draw_rrt:main',
+            'calculate_potential_fields = map_based.scripts.draw_potential_fields:main',
         ],
     },
 )
